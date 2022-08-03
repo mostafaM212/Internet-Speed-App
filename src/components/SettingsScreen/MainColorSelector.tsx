@@ -61,6 +61,7 @@ const styles: StylesType = StyleSheet.create({
   title: {
     fontSize: 15,
     marginVertical: 5,
+    color : '#ccc'
   },
   container2: {
     width: 60,
