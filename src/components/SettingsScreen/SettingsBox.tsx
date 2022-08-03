@@ -166,7 +166,6 @@ const styles: StylesType = StyleSheet.create({
   },
   container3: {
     width: '100%',
-    alignItems: 'center',
     height: '15%',
     justifyContent: 'space-between',
   },
