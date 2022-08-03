@@ -136,20 +136,7 @@ class HomeScreen extends React.Component<HomeScreenProps, HomeScreenState> {
   componentDidMount =async (): Promise<void> => {
     Promise.all([this.checkInternetConnection(), this.getNetworkBandwidth()]);
 
-    const settings: string | null = await AsyncStorage.getItem('settings')
-      .then(e => e)
-      .catch(e => console.log(e));
-
-    const transformedSettings: string = JSON.parse(settings);
-    if (typeof settings !== 'string') {
-      const initialSettings: IntialState = {
-        mainColor: 'rgb(125,50,24)',
-        iconColor: '#ffffff',
-      };
-      transformedSettings = JSON.stringify(initialSettings);
-      await AsyncStorage.setItem('settings', transformedSettings);
-    }
-    this.props.setAllSettings(transformedSettings);
+    
   };
   componentWillMount(): void {
     AsyncStorage.getItem('speeds')
