@@ -16,6 +16,7 @@ import {
 import {IntialState} from '../../redux/reducers/settingsReducers';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
+import DirectUserIcon from './DirectUserIcon';
 
 type Props = {
   mainColor: string;
@@ -78,51 +79,28 @@ class SettingsBox extends Component<Props, State> {
         <View style={styles.container3}>
           <Text style={styles.title}>Contact us</Text>
           <View style={styles.container4}>
-            <TouchableNativeFeedback
-              onPress={(): void => {
-                Linking.openURL('https://facebook.com/Prophet.lov/');
-              }}>
-              <Icon
-                name="logo-facebook"
-                color={this.props.iconColor}
-                size={30}
-                onPress={(): void => {
-                  Linking.openURL('https://facebook.com/Prophet.lov/');
-                }}
-              />
-            </TouchableNativeFeedback>
-            <TouchableNativeFeedback>
-              <Icon
-                name="logo-google"
-                color={this.props.iconColor}
-                size={30}
-                onPress={(): void => {
-                  Linking.openURL(
-                    'https://mail.google.com/mail/u/0/#inbox/FMfcgzGqPpZTqwTwKsvXKWStJDLszBSK',
-                  );
-                }}
-              />
-            </TouchableNativeFeedback>
-            <TouchableNativeFeedback>
-              <Icon
-                name="logo-twitter"
-                color={this.props.iconColor}
-                size={30}
-                onPress={(): void => {
-                  Linking.openURL('https://twitter.com/home');
-                }}
-              />
-            </TouchableNativeFeedback>
-            <TouchableNativeFeedback>
-              <Icon
-                name="logo-linkedin"
-                color={this.props.iconColor}
-                size={30}
-                onPress={(): void => {
-                  Linking.openURL('https://www.linkedin.com/feed/');
-                }}
-              />
-            </TouchableNativeFeedback>
+            <DirectUserIcon
+              name="logo-facebook"
+              color={this.props.iconColor}
+              link="https://facebook.com/Prophet.lov/"
+            />
+            <DirectUserIcon
+              name="logo-google"
+              color={this.props.iconColor}
+              link={
+                'https://mail.google.com/mail/u/0/#inbox/FMfcgzGqPpZTqwTwKsvXKWStJDLszBSK'
+              }
+            />
+            <DirectUserIcon
+              name="logo-twitter"
+              color={this.props.iconColor}
+              link={'https://twitter.com/home'}
+            />
+            <DirectUserIcon
+              name="logo-linkedin"
+              color={this.props.iconColor}
+              link={'https://www.linkedin.com/feed/'}
+            />
           </View>
         </View>
       </View>
@@ -168,12 +146,13 @@ const styles: StylesType = StyleSheet.create({
     width: '100%',
     height: '15%',
     justifyContent: 'space-between',
+    alginItems: 'center',
   },
-  title: {fontSize: 20, marginLeft: 10},
+  title: {fontSize: 20, marginLeft: 10, alignSelf: 'center'},
   container4: {
     flexDirection: 'row',
     width: '100%',
-    justifyContent : 'space-around'
+    justifyContent: 'space-around',
   },
 });
 
